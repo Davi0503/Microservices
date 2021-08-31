@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  catalogdb: 
+    image: mongo
+
+  basketdb: 
+    image: redis:alpine 
+
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    hostname: catalog.api
+    build:
+      context: .
+      dockerfile: Catalog.API/Dockerfile
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    hostname: basket.api
+    build:
+      context: .
+      dockerfile: Basket.API/Dockerfile  
+
+  apigateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile  
+
+volumes:
+  mongo_data:

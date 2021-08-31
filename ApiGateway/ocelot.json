@@ -1,0 +1,56 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8000"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/Product",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete"],
+      "DownstreamPathTemplate": "/api/v1/Product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "catalog.api",
+          "Port": "80"
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Product/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/Product/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "catalog.api",
+          "Port": "80"
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/api/v1/Product/GetProductByCategory/{catecory}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/v1/Product/GetProductByCategory/{catecory}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "catalog.api",
+          "Port": "80"
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Basket",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+      "DownstreamPathTemplate": "/api/v1/ControllerBasket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ]
+    }
+  ]
+
+}
