@@ -9,7 +9,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.API", "Basket.API\Basket.API.csproj", "{ED3890A6-AE70-47E3-9AEE-8EF80A839FCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{199FB828-2EF0-496A-8AD1-C212036BA8E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{199FB828-2EF0-496A-8AD1-C212036BA8E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization.Api", "Authorization.Api\Authorization.Api.csproj", "{96957EDA-4434-4AFA-B39C-A08817B12488}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{199FB828-2EF0-496A-8AD1-C212036BA8E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{199FB828-2EF0-496A-8AD1-C212036BA8E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{199FB828-2EF0-496A-8AD1-C212036BA8E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96957EDA-4434-4AFA-B39C-A08817B12488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96957EDA-4434-4AFA-B39C-A08817B12488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96957EDA-4434-4AFA-B39C-A08817B12488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96957EDA-4434-4AFA-B39C-A08817B12488}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

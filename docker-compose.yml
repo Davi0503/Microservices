@@ -27,5 +27,12 @@ services:
       context: .
       dockerfile: ApiGateway/Dockerfile  
 
+  authorization.api:
+    image: ${DOCKER_REGISTRY-}authorizationapi
+    build:
+      context: .
+      dockerfile: Authorization.Api/Dockerfile
+
 volumes:
   mongo_data:
+

@@ -1,4 +1,4 @@
-using Basket.API.Repositories;
+using Authorization.Api.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Basket.API
+namespace Authorization.Api
 {
     public class Startup
     {
@@ -33,16 +33,8 @@ namespace Basket.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Authorization.Api", Version = "v1" });
             });
-
-            services.AddStackExchangeRedisCache(options => {
-                options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
-            
-            });
-
-            services.AddScoped<IBasketRepository, BasketRepository>();
-
             var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("Jwt:Secret"));
             services.AddAuthentication(x =>
             {
@@ -61,6 +53,8 @@ namespace Basket.API
                     ValidateAudience = false
                 };
             });
+
+            services.AddScoped<ILoginService, LoginService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,13 +64,13 @@ namespace Basket.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authorization.Api v1"));
             }
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -33,6 +33,13 @@ services:
     ports:
       - "8001:80"
 
+  authorization.api:
+    container_name: authorization.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8003:80"
+
   apigateway:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -41,7 +48,8 @@ services:
     links:
       - catalog.api
       - basket.api
+      - authorization.api
     depends_on:
       - catalog.api
       - basket.api
-
+      - authorization.api
